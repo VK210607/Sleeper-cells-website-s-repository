@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Service Agents - Sleeper Cells</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #1e3a8a;
+            --secondary-blue: #3b82f6;
+            --light-blue: #eff6ff;
+            --white: #ffffff;
+            --dark-text: #1f2937;
+            --gray: #6b7280;
+        }
+
+        * { box-sizing: border-box; margin:0; padding:0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background:#f8fafc; color:var(--dark-text); min-height:100vh; }
+        header { background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%); color:var(--white); padding:1.2rem; text-align:center; }
+        .logo-icon { font-size:2rem; margin-right:0.6rem; }
+        .container { max-width:1200px; margin:1.5rem auto; padding:0 1rem; }
+
+        .modal-header { background: var(--primary-blue); color: var(--white); padding: 1rem; display:flex; align-items:center; justify-content:space-between; border-radius:8px 8px 0 0; }
+        .modal-header h2 { margin:0; font-size:1.4rem; }
+        .back-btn { background: none; border: 2px solid rgba(255,255,255,0.15); color: white; padding:0.5rem 0.8rem; border-radius:6px; cursor:pointer; }
+
+        .services-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:1.25rem; margin-top:1rem; }
+        .service-item { background: var(--light-blue); border-radius:10px; padding:1rem; border-left:4px solid var(--secondary-blue); }
+        .service-name { font-size:1.25rem; font-weight:600; color:var(--primary-blue); margin-bottom:0.4rem; }
+        .service-number { color:var(--dark-text); margin-bottom:0.3rem; }
+        .service-price { color:#059669; font-weight:600; margin-bottom:0.5rem; }
+        .service-manager { color:var(--gray); font-style:italic; margin-bottom:0.6rem; }
+        .video-link { display:inline-flex; align-items:center; background:var(--secondary-blue); color:var(--white); padding:0.45rem 0.8rem; border-radius:6px; text-decoration:none; margin-right:0.5rem; }
+
+        @media (max-width:1024px) { .services-grid { grid-template-columns: repeat(2,1fr); } }
+        @media (max-width:768px) { .services-grid { grid-template-columns: 1fr; } .modal-header { flex-direction:column; gap:0.6rem; align-items:flex-start; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div style="display:flex; align-items:center; justify-content:center; gap:0.6rem;">
+            <i class="fas fa-user-secret logo-icon"></i>
+            <h1 style="font-size:1.6rem;">Service Agents</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="modal-header">
+            <h2>Our Service Agents</h2>
+            <button class="back-btn" onclick="window.location.href='homepage.html'">&larr; Back</button>
+        </div>
+
+        <p style="margin-top:1rem; color:var(--gray);">Contact our specialized agents for discreet services. Each agent manages specific operations and is available 24/7.</p>
+
+        <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="service-item">
+                        <div class="service-name">GK Operations</div>
+                        <div class="service-number">+91 99529 36256</div>
+                        <div class="service-price">Service Fee: Starting from ₹350</div>
+                        <div class="service-manager">Managed by Vishalini</div>
+                        <a href="https://youtu.be/Y0TFzpRodnw" target="_blank" class="video-link">
+                            <i class="fab fa-youtube"></i> Watch Instructions
+                        </a>
+                        <a href="https://teal-violet-24.tiiny.site" target="_self" class="video-link">Details</a>
+                    </div>
+                    
+                    <!-- Duplicate GK Operations x9 (added after the first card) -->
+                    <div class="service-item">
+                        <div class="service-name">Thejas</div>
+                        <div class="service-number">+91 96004 25507</div>
+                        <div class="service-price">Service Fee: Starting from ₹350</div>
+                        <div class="service-manager">Managed by Vi-saw-lakonda</div>
+                        <a href="https://youtu.be/Y0TFzpRodnw" target="_blank" class="video-link">
+                            <i class="fab fa-youtube"></i> Watch Instructions
+                        </a>
+                        <a href="https://teal-violet-24.tiiny.site" target="_self" class="video-link">Details</a>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-name">Yadhavi K</div>
+                        <div class="service-number">+91 93427 50456</div>
+                        <div class="service-price">Service Fee: Starting from ₹350</div>
+                        <div class="service-manager">Managed by Vishal</div>
+                        <a href="https://youtu.be/Y0TFzpRodnw" target="_blank" class="video-link">
+                            <i class="fab fa-youtube"></i> Watch Instructions
+                        </a>
+                        <a href="https://teal-violet-24.tiiny.site" target="_self" class="video-link">Details</a>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-name">Vishalini V</div>
+                        <div class="service-number">+91 98414 91854</div>
+                        <div class="service-price">Service Fee: Starting from ₹350</div>
+                        <div class="service-manager">Managed by Vasudevan</div>
+                        <a href="https://youtu.be/Y0TFzpRodnw" target="_blank" class="video-link">
+                            <i class="fab fa-youtube"></i> Watch Instructions
+                        </a>
+                        <a href="https://teal-violet-24.tiiny.site" target="_self" class="video-link">Details</a>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-name">Varsha G</div>
+                        <div class="service-number">+91 98403 77377</div>
+                        <div class="service-price">Service Fee: Starting from ₹350</div>
+                        <div class="service-manager">Managed by Gowri Shankar</div>
+                        <a href="https://youtu.be/Y0TFzpRodnw" target="_blank" class="video-link">
+                            <i class="fab fa-youtube"></i> Watch Instructions
+                        </a>
+                        <a href="https://teal-violet-24.tiiny.site" target="_self" class="video-link">Details</a>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-name">Tejna</div>
+                        <div class="service-number">+91 99448 09990</div>
+                        <div class="service-price">Service Fee: Starting from ₹350</div>
+                        <div class="service-manager">Managed by Srinivasan</div>
+                        <a href="https://youtu.be/Y0TFzpRodnw" target="_blank" class="video-link">
+                            <i class="fab fa-youtube"></i> Watch Instructions
+                        </a>
+                        <a href="https://teal-violet-24.tiiny.site" target="_self" class="video-link">Details</a>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-name">R K Tamizholiyan</div>
+                        <div class="service-number">+91 89399 18205</div>
+                        <div class="service-price">Service Fee: Starting from ₹350</div>
+                        <div class="service-manager">Managed by Moshi Moshi</div>
+                        <a href="https://youtu.be/Y0TFzpRodnw" target="_blank" class="video-link">
+                            <i class="fab fa-youtube"></i> Watch Instructions
+                        </a>
+                        <a href="https://teal-violet-24.tiiny.site" target="_self" class="video-link">Details</a>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-name">Vetha Varna</div>
+                        <div class="service-number">+91 91768 35911</div>
+                        <div class="service-price">Service Fee: Starting from ₹350</div>
+                        <div class="service-manager">Managed by Varsha</div>
+                        <a href="https://youtu.be/Y0TFzpRodnw" target="_blank" class="video-link">
+                            <i class="fab fa-youtube"></i> Watch Instructions
+                        </a>
+                        <a href="https://teal-violet-24.tiiny.site" target="_self" class="video-link">Details</a>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-name">Sushanth</div>
+                        <div class="service-number">+91 78239 94050</div>
+                        <div class="service-price">Service Fee: Starting from ₹350</div>
+                        <div class="service-manager">Managed by ...</div>
+                        <a href="https://youtu.be/Y0TFzpRodnw" target="_blank" class="video-link">
+                            <i class="fab fa-youtube"></i> Watch Instructions
+                        </a>
+                        <a href="https://teal-violet-24.tiiny.site" target="_self" class="video-link">Details</a>
+                    </div>
+
+                    <!-- Service 3 -->
+                     <div class="service-item">
+                        <div class="service-name">Yogeshwaran S</div>
+                        <div class="service-number">+91 82487 83007</div>
+                        <div class="service-price">Service Fee: Starting from ₹350</div>
+                        <div class="service-manager">Managed by Avg Middle class</div>
+                        <a href="https://youtu.be/Y0TFzpRodnw" target="_blank" class="video-link">
+                            <i class="fab fa-youtube"></i> Watch Instructions
+                        </a>
+                        <a href="https://teal-violet-24.tiiny.site" target="_self" class="video-link">Details</a>
+                    
+                </div>
+        </div>
+    </div>
+</body>
+</html>
