@@ -3,6 +3,9 @@
 <head>
     <title>Sleeper Cells Service Center</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
     <style>
         * {
             margin: 0;
@@ -227,86 +230,6 @@
             flex: 1 1 auto;
         }
 
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .service-item {
-            background: var(--light-blue);
-            border-radius: 10px;
-            padding: 1.5rem;
-            border-left: 4px solid var(--secondary-blue);
-            transition: all 0.3s ease;
-        }
-
-        .service-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(59, 130, 246, 0.1);
-        }
-
-        .service-name {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--primary-blue);
-            margin-bottom: 0.5rem;
-        }
-
-        .service-number {
-            font-size: 1.2rem;
-            color: var(--dark-text);
-            margin-bottom: 0.5rem;
-        }
-
-        .service-price {
-            font-size: 1.1rem;
-            color: #059669;
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-        }
-
-        .service-manager {
-            font-size: 0.95rem;
-            color: var(--gray);
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-
-        .video-link {
-            display: inline-flex;
-            align-items: center;
-            background: var(--secondary-blue);
-            color: var(--white);
-            padding: 0.6rem 1.2rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .video-link:hover {
-            background: var(--primary-blue);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(30, 58, 138, 0.2);
-        }
-
-        .video-link i {
-            margin-right: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        /* Ensure video links (icon + text) sit on the same line inside service-item */
-        .service-item .links {
-            display: flex;
-            gap: 0.6rem;
-            align-items: center;
-            flex-wrap: nowrap;
-            margin-top: 0.8rem;
-        }
-
         /* Grievances Form */
         .form-group {
             margin-bottom: 1.5rem;
@@ -445,10 +368,6 @@
 
         /* Responsive Styles */
         @media (max-width: 1024px) {
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
             .footer-content {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -463,10 +382,6 @@
                 grid-template-columns: 1fr;
             }
             
-            .service-item {
-                padding: 1.2rem;
-            }
-            
             .footer-content {
                 grid-template-columns: 1fr;
             }
@@ -474,7 +389,6 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="logo-container">
             <i class="fas fa-user-secret logo-icon"></i>
@@ -483,10 +397,8 @@
         <p class="tagline">Discreet, Efficient, and Professional Solutions for All Your Needs</p>
     </header>
 
-    <!-- Main Content -->
     <div class="container">
         <div class="cards-section">
-            <!-- Services Card -->
             <div class="main-card" id="services-card">
                 <div class="card-header">
                     <i class="fas fa-cogs"></i>
@@ -504,7 +416,6 @@
                 </div>
             </div>
 
-            <!-- Grievances Card -->
             <div class="main-card" id="grievances-card">
                 <div class="card-header">
                     <i class="fas fa-headset"></i>
@@ -524,7 +435,6 @@
         </div>
     </div>
 
-    <!-- Services Modal -->
     <div class="modal" id="services-modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -542,7 +452,6 @@
         </div>
     </div>
 
-    <!-- Grievances Modal -->
     <div class="modal" id="grievances-modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -568,8 +477,15 @@
                         <select id="service-type" required>
                             <option value="">Select a service</option>
                             <option value="GK Operations">GK Operations</option>
-                            <option value="Intel Division">Intel Division</option>
-                            <option value="Logistics Unit">Logistics Unit</option>
+                            <option value="Intel Division">Thejas</option>
+                            <option value="Logistics Unit">Yadhavi K</option>
+                            <option value="Communications">Vishalini V</option>
+                            <option value="Security Services">Varsha G</option>
+                            <option value="Data Analysis">Tejna</option>
+                            <option value="Strategic Planning">R K Tamizholiyan</option>
+                            <option value="Field Operations">Vetha Varna</option>
+                            <option value="Surveillance">Sushanth</option>
+                            <option value="Cybersecurity">Yogeshwaran S </option>
                             <option value="Other">Other</option>
                         </select>
                     </div>
@@ -605,7 +521,6 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -632,7 +547,7 @@
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul class="contact-info">
-                    <li><i class="fas fa-chevron-right"></i> <a href="#services-card" style="color: white; text-decoration: none;">Our Services</a></li>
+                    <li><i class="fas fa-chevron-right"></i> <a href="services.html" style="color: white; text-decoration: none;">Our Services</a></li>
                     <li><i class="fas fa-chevron-right"></i> <a href="#grievances-card" style="color: white; text-decoration: none;">Grievance Portal</a></li>
                     <li><i class="fas fa-chevron-right"></i> <a href="https://youtu.be/Y0TFzpRodnw" target="_blank" style="color: white; text-decoration: none;">Instruction Video</a></li>
                     <li><i class="fas fa-chevron-right"></i> <a href="#" style="color: white; text-decoration: none;">Privacy Policy</a></li>
@@ -645,147 +560,156 @@
         </div>
     </footer>
 
-    <script>
-        // DOM Elements
-        const servicesCard = document.getElementById('services-card');
-        const grievancesCard = document.getElementById('grievances-card');
-        const servicesModal = document.getElementById('services-modal');
-        const grievancesModal = document.getElementById('grievances-modal');
-        const closeServicesBtn = document.getElementById('close-services');
-        const closeGrievancesBtn = document.getElementById('close-grievances');
-        const grievanceForm = document.getElementById('grievance-form');
-        
-        // Navigate to Services page
-        servicesCard.addEventListener('click', () => {
-            window.location.href = 'services.html';
-        });
-        
-        // Open Grievances Modal
-        grievancesCard.addEventListener('click', () => {
-            grievancesModal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        });
-        
-        // Close Services Modal
-        closeServicesBtn.addEventListener('click', () => {
-            servicesModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-        
-        // Close Grievances Modal
-        closeGrievancesBtn.addEventListener('click', () => {
-            grievancesModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-        
-        // Close modals when clicking outside the modal content
-        window.addEventListener('click', (e) => {
-            if (e.target === servicesModal) {
-                servicesModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-            if (e.target === grievancesModal) {
-                grievancesModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
-        
-        // Handle Grievance Form Submission
-        grievanceForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const contact = document.getElementById('contact').value;
-            const serviceType = document.getElementById('service-type').value;
-            const priority = document.getElementById('priority').value;
-            const message = document.getElementById('message').value;
-            
-            // In a real application, you would send this data to a server
-            // For this demo, we'll just show an alert and reset the form
-            alert(`Thank you, ${name}! Your grievance has been submitted successfully.\n\nWe will contact you at ${contact} within 24 hours regarding your ${priority} priority issue with ${serviceType}.`);
-            
-            // Reset the form
-            grievanceForm.reset();
-            
-            // Close the modal
-            grievancesModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-        
-        // Add some interactive effects to cards
-        const mainCards = document.querySelectorAll('.main-card');
-        
-        mainCards.forEach(card => {
-            // Add focus effect for accessibility
-            card.addEventListener('focus', () => {
-                card.style.transform = 'translateY(-8px)';
-                card.style.boxShadow = '0 12px 24px rgba(30, 58, 138, 0.15)';
-                card.style.borderColor = 'var(--secondary-blue)';
-            });
-            
-            // Remove focus effect
-            card.addEventListener('blur', () => {
-                card.style.transform = 'translateY(0)';
-                card.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.08)';
-                card.style.borderColor = 'transparent';
-            });
-            
-            // Add keyboard support
-            card.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    card.click();
-                }
-            });
-            
-            // Make cards focusable
-            card.setAttribute('tabindex', '0');
-        });
-        
-        // Add a simple animation when page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            // Animate header elements
-            const headerElements = document.querySelectorAll('header h1, header .tagline, .logo-icon');
-            headerElements.forEach((el, index) => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(-20px)';
-                
-                setTimeout(() => {
-                    el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }, 300 + (index * 200));
-            });
-            
-            // Animate cards
-            const cards = document.querySelectorAll('.main-card');
-            cards.forEach((card, index) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(30px)';
-                
-                setTimeout(() => {
-                    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, 800 + (index * 300));
-            });
+  <script>
+    // --------------------------------------------------------
+    // 1. SAFE INITIALIZATION (Unique Variable Name)
+    // --------------------------------------------------------
+    const SB_URL = "https://qgzjxgrvelfktxgvlbnk.supabase.co";
+    const SB_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFnemp4Z3J2ZWxma3R4Z3ZsYm5rIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY2NDI5NjcsImV4cCI6MjA4MjIxODk2N30.oFHnuIqfESkuyJwRR13pEP4pUlQUEQvoNHseCOmd_N0";
 
-                // Group video links inside each service-item so icon and links stay on one line
-                const serviceItems = document.querySelectorAll('.service-item');
-                serviceItems.forEach(item => {
-                    const links = Array.from(item.querySelectorAll('.video-link'));
-                    if (links.length === 0) return;
+    // We use 'sbClient' to avoid name conflicts with other files
+    let sbClient = null;
 
-                    // create wrapper only if not already wrapped
-                    if (!item.querySelector('.links')) {
-                        const wrapper = document.createElement('div');
-                        wrapper.className = 'links';
-                        links.forEach(l => wrapper.appendChild(l));
-                        item.appendChild(wrapper);
-                    }
+    // Wait for library to load
+    document.addEventListener("DOMContentLoaded", () => {
+        if (window.supabase) {
+            sbClient = window.supabase.createClient(SB_URL, SB_ANON_KEY);
+            console.log("Supabase connected in homepage!");
+        } else {
+            console.error("CRITICAL: Supabase CDN not loaded. Check <head> tags.");
+            alert("Error: Database library missing. Please refresh.");
+        }
+    });
+
+    // --------------------------------------------------------
+    // 2. UI HANDLERS (Modal & Cards)
+    // --------------------------------------------------------
+    const servicesCard = document.getElementById('services-card');
+    const grievancesCard = document.getElementById('grievances-card');
+    const servicesModal = document.getElementById('services-modal');
+    const grievancesModal = document.getElementById('grievances-modal');
+    const closeServicesBtn = document.getElementById('close-services');
+    const closeGrievancesBtn = document.getElementById('close-grievances');
+    const grievanceForm = document.getElementById('grievance-form');
+    
+    // UI Logic (Opening/Closing Modals)
+    servicesCard.addEventListener('click', () => { window.location.href = 'services.html'; });
+    
+    grievancesCard.addEventListener('click', () => {
+        grievancesModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    });
+    
+    closeServicesBtn.addEventListener('click', () => {
+        servicesModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+    
+    closeGrievancesBtn.addEventListener('click', () => {
+        grievancesModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+    
+    window.addEventListener('click', (e) => {
+        if (e.target === servicesModal) servicesModal.style.display = 'none';
+        if (e.target === grievancesModal) grievancesModal.style.display = 'none';
+    });
+
+    // --------------------------------------------------------
+    // 3. GRIEVANCE FORM SUBMISSION
+    // --------------------------------------------------------
+    grievanceForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // SAFETY CHECK: Ensure we have the connection
+        if (!sbClient) {
+            alert("Database loading... please try again in a second.");
+            return;
+        }
+
+        // Get form values
+        const name = document.getElementById('name').value;
+        const contact = document.getElementById('contact').value;
+        const serviceType = document.getElementById('service-type').value;
+        const priority = document.getElementById('priority').value;
+        const message = document.getElementById('message').value;
+        
+        try {
+            // Get Current User
+            const { data: { user } } = await sbClient.auth.getUser();
+
+            if (!user) {
+                alert("You must be logged in to submit a grievance.");
+                window.location.href = "index.html"; 
+                return;
+            }
+
+            // INSERT into 'grievances' table
+            const { error } = await sbClient
+                .from('grievances')
+                .insert({
+                    user_id: user.id,          
+                    user_name: name,            
+                    service_name: serviceType, 
+                    grievance: message,        
+                    priority_level: priority   
                 });
+
+            if (error) throw error;
+
+            alert(`Thank you, ${name}! Your grievance has been registered.`);
+            
+            // Reset and Close
+            grievanceForm.reset();
+            grievancesModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+
+        } catch (err) {
+            console.error("Submission Error:", err);
+            alert("Error submitting grievance: " + err.message);
+        }
+    });
+
+    // --------------------------------------------------------
+    // 4. ANIMATIONS
+    // --------------------------------------------------------
+    const mainCards = document.querySelectorAll('.main-card');
+    mainCards.forEach(card => {
+        card.addEventListener('focus', () => {
+            card.style.transform = 'translateY(-8px)';
+            card.style.boxShadow = '0 12px 24px rgba(30, 58, 138, 0.15)';
+            card.style.borderColor = 'var(--secondary-blue)';
         });
-    </script>
+        card.addEventListener('blur', () => {
+            card.style.transform = 'translateY(0)';
+            card.style.borderColor = 'transparent';
+        });
+        card.setAttribute('tabindex', '0');
+    });
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        const headerElements = document.querySelectorAll('header h1, header .tagline, .logo-icon');
+        headerElements.forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(-20px)';
+            setTimeout(() => {
+                el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }, 300 + (index * 200));
+        });
+        
+        const cards = document.querySelectorAll('.main-card');
+        cards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            setTimeout(() => {
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 800 + (index * 300));
+        });
+    });
+</script>
 </body>
 </html>
