@@ -386,6 +386,119 @@
                 grid-template-columns: 1fr;
             }
         }
+        .navbar {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .navbar a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            border:white 2px solid;
+            animation: modalAppear 1.5s ease-out;
+        }
+
+        /* 1. Container for positioning */
+        .profile-container {
+            position: absolute;
+            top: 2rem;
+            right: 2rem; /* Aligns to the far right */
+            z-index: 20;
+        }
+
+        /* 2. The Profile Button (Circular Icon) */
+        .profile-btn {
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 2.2rem; /* Large icon size */
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 50%;
+            padding: 0;
+            line-height: 1;
+        }
+
+        .profile-btn:hover {
+            color: var(--white);
+            transform: scale(1.1);
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
+        }
+
+        /* 3. The Dropdown Menu */
+        .dropdown-menu {
+            display: none; /* Hidden by default */
+            position: absolute;
+            top: 100%; /* Right below the button */
+            right: 0;
+            width: 200px;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            padding: 10px 0;
+            margin-top: 10px;
+            animation: fadeIn 0.2s ease-out;
+        }
+
+        /* Dropdown Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 4. Dropdown Items */
+        .user-info-display {
+            padding: 10px 15px;
+            font-size: 0.85rem;
+            color: var(--gray);
+            font-weight: 600;
+            word-break: break-all; /* Prevents long emails from breaking layout */
+        }
+
+        .dropdown-menu hr {
+            border: 0;
+            border-top: 1px solid #eee;
+            margin: 5px 0;
+        }
+
+        .dropdown-item {
+            width: 100%;
+            padding: 10px 15px;
+            background: none;
+            border: none;
+            text-align: left;
+            font-size: 1rem;
+            color: var(--dark-text);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.2s;
+        }
+
+        .dropdown-item:hover {
+            background: var(--light-blue);
+            color: var(--primary-blue);
+        }
+
+        .dropdown-item i {
+            color: var(--secondary-blue);
+        }
+
+        /* Mobile Adjustment: Move profile next to nav */
+        @media (max-width: 768px) {
+            .profile-container {
+                position: static;
+                display: flex;
+                justify-content: center;
+                margin-top: 10px;
+            }
+        }
+       
     </style>
 </head>
 <body>
@@ -394,7 +507,29 @@
             <i class="fas fa-user-secret logo-icon"></i>
             <h1>Sleeper Cells Service Center</h1>
         </div>
+
+       <div class="profile-container nav-animate">
+        <button id="profile-btn" class="profile-btn">
+            <i class="fas fa-user-circle"></i>
+        </button>
+        
+        <div id="profile-dropdown" class="dropdown-menu">
+            <div class="user-info-display" id="display-email">user@example.com</div>
+            <hr>
+            <button id="logout-btn" class="dropdown-item">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+            </div>
+        </div>
+
         <p class="tagline">Discreet, Efficient, and Professional Solutions for All Your Needs</p>
+        <nav class="navbar navbar-expand-lg navbar-primary">
+            <!-- Navigation can be added here if needed -->
+             <a class="navbar-brand" href="homepage.html">Home</a>
+             <a class="navbar-brand" href="services.html">Services</a>
+             <a class="navbar-brand" href="#grievances-card">Grievances</a>
+             <a class="navbar-brand" href="#contact-info">Contact Us</a>
+        </nav>
     </header>
 
     <div class="container">
@@ -407,10 +542,10 @@
                 <div class="card-content">
                     <p>We provide specialized services for unique requirements. Our expert team is available 24/7 to assist with your needs.</p>
                     <ul class="services-list">
-                        <li><i class="fas fa-check-circle" style="color: #10b981;"></i> Confidential Operations</li>
-                        <li><i class="fas fa-check-circle" style="color: #10b981;"></i> Data Intelligence</li>
-                        <li><i class="fas fa-check-circle" style="color: #10b981;"></i> Strategic Planning</li>
-                        <li><i class="fas fa-check-circle" style="color: #10b981;"></i> Secure Communications</li>
+                        <li><i class="fas fa-check-circle" style="color: #10b981;"></i> Guaranteed returns</li>
+                        <li><i class="fas fa-check-circle" style="color: #10b981;"></i> Cheap and Best</li>
+                        <li><i class="fas fa-check-circle" style="color: #10b981;"></i> Paisa barbaad</li>
+                        <li><i class="fas fa-check-circle" style="color: #10b981;"></i> Click to see more</li>
                     </ul>
                     <p style="margin-top: 1rem;">Click to view our service agents and their contact details.</p>
                 </div>
@@ -521,7 +656,7 @@
         </div>
     </div>
 
-    <footer>
+    <footer id="footer">
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Sleeper Cells Service Center</h3>
@@ -544,7 +679,7 @@
                 </ul>
             </div>
             
-            <div class="footer-section">
+            <div class="footer-section" id="contact-info">
                 <h3>Quick Links</h3>
                 <ul class="contact-info">
                     <li><i class="fas fa-chevron-right"></i> <a href="services.html" style="color: white; text-decoration: none;">Our Services</a></li>
@@ -708,6 +843,56 @@
                 card.style.opacity = '1';
                 card.style.transform = 'translateY(0)';
             }, 800 + (index * 300));
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+    // ... (Keep your existing animation code) ...
+
+    // --- PROFILE MENU LOGIC ---
+    const profileBtn = document.getElementById('profile-btn');
+    const dropdown = document.getElementById('profile-dropdown');
+    const logoutBtn = document.getElementById('logout-btn');
+    const displayEmail = document.getElementById('display-email');
+
+    // 1. Toggle Menu on Click
+    profileBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent immediate closing
+        // Toggle between flex and none
+        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // 2. Close Menu when clicking OUTSIDE
+    window.addEventListener('click', () => {
+        dropdown.style.display = 'none';
+    });
+
+    // Prevent menu close when clicking INSIDE the menu
+    dropdown.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+
+    // 3. Load User Email into the Menu
+    async function loadUserProfile() {
+        if (!sbClient) return;
+        const { data: { user } } = await sbClient.auth.getUser();
+        if (user) {
+            displayEmail.innerText = user.email;
+        }
+    }
+    loadUserProfile();
+
+    // 4. LOGOUT FUNCTION
+    logoutBtn.addEventListener('click', async () => {
+        if (!sbClient) return;
+        
+        const { error } = await sbClient.auth.signOut();
+        if (error) {
+            alert("Error logging out: " + error.message);
+        } else {
+            // Redirect to Login Page
+            window.location.href = "login.html";
+        }
         });
     });
 </script>
